@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+#root{
+  width: 100%;
+}
+
+.bs-header {
+  background-color: white;
+  width: 100% !important;
+
+}
+
+.btn-su{
+  background-color : #FFC906;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 30px;
+}
