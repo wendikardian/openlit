@@ -1,19 +1,24 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./landing_page/Header";
 import Jumbotron from "./landing_page/Jumbotron";
-
-
-function App() {
-  const [count, setCount] = useState(0);
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./login/Login";
+function LandingPage() {
   return (
-    <div >
+    <div>
       <Header />
       <Jumbotron />
     </div>
+  );
+}
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route exact path="/" Component={LandingPage} />
+        <Route  path="/login" Component={Login} />
+      </Routes>
+    </Router>
   );
 }
 
