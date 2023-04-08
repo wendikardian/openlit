@@ -1,0 +1,55 @@
+.yellow-bg {
+  background-color: #ffc906;
+}
+
+.input-com {
+  outline: none;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  width: 500px;
+  margin-top: 20px;
+}
+
+.input-com:focus {
+  border-color: #ffc906;
+}
+
+.input-div {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.content {
+  align-items: center;
+  justify-content: center;
+}
+
+.forgot-div {
+  /* background-color: red; */
+  width: 500px;
+  margin-top: 20px;
+  color: #ffc906;
+}
+
+.forgot-div:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.button-login {
+  background-color: #ffc906;
+  width: 200px;
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button-signup{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+}
