@@ -29,16 +29,19 @@ function Header() {
           </div>
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link to="/login">
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+              <a href="#" class="text-sm font-semibold leading-6 text-gray-900">
+                Log in <span aria-hidden="true">&rarr;</span>
+              </a>
             </Link>
-            <div class=" ml-20 p-2 rounded-2xl  bg-yellow-400">
-                <a href="" class="font-semibold">Sign up for free</a>
-            </div>
+            <Link to="/register">
+              <div class=" ml-20 p-2 rounded-2xl  bg-yellow-400">
+                <a href="" class="font-semibold">
+                  Sign up for free
+                </a>
+              </div>
+            </Link>
           </div>
         </nav>
-
       </header>
     </div>
   );
