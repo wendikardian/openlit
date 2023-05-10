@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from '../assets/logo.png'
 
 function Header() {
   return (
@@ -13,7 +14,7 @@ function Header() {
             <a href="#" class="-m-1.5 p-1.5 flex">
               <img
                 class="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src={Logo}
                 alt=""
               />
               <h1 class="ml-4 text-lg font-weight">OPENLIT</h1>

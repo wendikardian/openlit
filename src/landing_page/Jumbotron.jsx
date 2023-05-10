@@ -1,5 +1,5 @@
 import React from "react";
-import BookReading from "../assets/reading.png";
+import BookReading from "../assets/landing.png";
 
 export default function Jumbotron() {
   return (
@@ -18,7 +18,7 @@ export default function Jumbotron() {
         </div>
       </div>
       <div>
-        <img src={BookReading} alt="" class="max-w-md" />
+        <img src={BookReading} alt="" class="max-w-lg" />
       </div>
     </div>
   );

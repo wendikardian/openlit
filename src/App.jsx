@@ -4,6 +4,7 @@ import Jumbotron from "./landing_page/Jumbotron";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./login/Login";
 import Register from "./login/Register";
+import DashboardBook from "./Book/DashboardBook";
 
 function LandingPage() {
   return (
@@ -13,6 +14,9 @@ function LandingPage() {
     </div>
   );
 }
+
+
+
 function App() {
   return (
     <Router>
@@ -20,6 +24,7 @@ function App() {
         <Route exact path="/" Component={LandingPage} />
         <Route  path="/login" Component={Login} />
         <Route  path="/register" Component={Register} />
+        <Route  path="/book/dashboard" Component={DashboardBook} />
       </Routes>
     </Router>
   );
