@@ -16,9 +16,12 @@ export default function Login() {
         <div className="forgot-div  flex justify-end">
           <p class="text-left">Forgot your password ? </p>
         </div>
+        <Link to="/book/dashboard">
+
         <div class="button-login">
           <p>Login</p>
         </div>
+        </Link>
         <p class="mt-5 mb-5">or</p>
         <Link to="/register">
           <div class="button-signup">

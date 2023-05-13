@@ -1,0 +1,12 @@
+.card-book{
+    background-color: rgb(247, 232, 181);
+    padding: 20px;
+    border-radius: 20px;
+    margin: 15px;
+    padding-bottom: 0px;
+}
+
+.book-img{
+    width: 150px;
+    border-radius: 12px;
+}
