@@ -100,19 +100,19 @@ export const Articles = [
         "id": 1,
         "title": "How to be a good writer",
         "author": "John Doe",
-        "image": "https://images.unsplash.com/photo-1517248135467-4dceea8dce2b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3JpdGVyJTIwc3RvcmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
+        "image": "https://selfpublishingadvice.org/wp-content/uploads/2014/06/24399167_l.jpg",
         "content": "Lorem ipsum dolor sit amet c"
     }, {
         "id": 2,
         "title": "How to be a good singer",
         "author": "John Doe",
-        "image": "https://images.unsplash.com/photo-1517248135467-4dceea8dce2b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3JpdGVyJTIwc3RvcmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
+        "image": "https://static-koimoi.akamaized.net/wp-content/new-galleries/2020/09/kabir-singh-singer-akhil-sachdeva-on-advantage-of-singing-for-ott-shows-001.jpg",
         "content": "Lorem ipsum dolor sit amet c"
     }, {
         "id": 3,
         "title": "How to be a good dancer",
         "author": "John Doe",
-        "image" : "https://images.unsplash.com/photo-1517248135467-4dceea8dce2b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3JpdGVyJTIwc3RvcmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
+        "image" : "https://img.freepik.com/free-vector/hand-drawn-dancer-silhouette-illustration_23-2149432277.jpg?w=2000",
         "content": "Lorem ipsum dolor sit amet c"
     }, {
         "id": 4,

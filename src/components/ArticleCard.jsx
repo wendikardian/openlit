@@ -1,10 +1,13 @@
 import React from 'react'
+import './ArticleCard.css'
 
-export default function ArticleCard() {
+export default function ArticleCard(props) {
+    const {image, title, author} = props
   return (
-    <div>
-        <img src="https://buzzup.id/wp-content/uploads/2021/08/profesi-programmer-sekarang-bergengsi.jpg" alt="" />
-        <h1>Article</h1>
+    <div className="art-card">
+        <img src={image} alt="" className="article-img"/>
+        <h1 className="author">{title}</h1>
+        <p>By : {author}</p>
     </div>
   )
 }
