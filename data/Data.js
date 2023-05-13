@@ -122,3 +122,25 @@ export const Articles = [
         "content": "Lorem ipsum dolor sit amet c"
     }
 ]
+
+
+export const posting = [
+    {
+        "id" : 1,
+        "caption" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+        "user" : "John Doe",
+        "profile" : "https://www.w3schools.com/howto/img_avatar.png",
+    },
+    {
+        "id" : 2,
+        "caption" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+        "user" : "John Doe",
+        "profile" : "https://www.w3schools.com/howto/img_avatar.png",
+    },
+    {
+        "id" : 3,
+        "caption" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+        "user" : "John Doe",
+        "profile" : "https://www.w3schools.com/howto/img_avatar.png",
+    },
+]
