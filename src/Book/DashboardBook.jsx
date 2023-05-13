@@ -13,7 +13,7 @@ export default function DashboardBook() {
   return (
     <div>
       <ReusableHeader />
-      <div className="categories mt-10 text-4xl">
+      <div className="categories text-4xl header-text">
         <h1>Categories</h1>
         <div className="container-genre">
           {bookGenre.map((item) => {

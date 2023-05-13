@@ -129,18 +129,18 @@ export const posting = [
         "id" : 1,
         "caption" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
         "user" : "John Doe",
-        "profile" : "https://www.w3schools.com/howto/img_avatar.png",
+        "profile" : "https://buzzup.id/wp-content/uploads/2021/08/profesi-programmer-sekarang-bergengsi.jpg",
     },
     {
         "id" : 2,
         "caption" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
         "user" : "John Doe",
-        "profile" : "https://www.w3schools.com/howto/img_avatar.png",
+        "profile" : "https://buzzup.id/wp-content/uploads/2021/08/profesi-programmer-sekarang-bergengsi.jpg",
     },
     {
         "id" : 3,
         "caption" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
         "user" : "John Doe",
-        "profile" : "https://www.w3schools.com/howto/img_avatar.png",
+        "profile" : "https://buzzup.id/wp-content/uploads/2021/08/profesi-programmer-sekarang-bergengsi.jpg",
     },
 ]

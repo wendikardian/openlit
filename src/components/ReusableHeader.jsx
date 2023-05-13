@@ -16,13 +16,17 @@ function ReusableHeader() {
   const items = [
     {
       label: (
+        <Link to="/profile">
+
+
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.antgroup.com"
+
         >
           See Profile
         </a>
+        </Link>
       ),
       key: "0",
     },
@@ -41,7 +45,10 @@ function ReusableHeader() {
   ];
   return (
     <div>
-      <header class="bg-white  bs-header shadow-lg">
+      <header
+        class="bg-white  bs-header shadow-lg "
+        style={{ position: "fixed", width: "100%", top: 0, zIndex: 100 }}
+      >
         <nav
           class="mx-auto flex max-w-7xl items-center justify-between p-6 w-full flex-grow "
           aria-label="Global"
@@ -65,10 +72,15 @@ function ReusableHeader() {
               </Link>
             </div>
             <div class="flex-row ">
-              <FileTextOutlined size={30} className="mr-5" />
-              <a href="#" class="text-sm font-semibold leading-6 text-gray-900">
-                Class
-              </a>
+              <Link to="/class/list">
+                <FileTextOutlined size={30} className="mr-5" />
+                <a
+                  href="#"
+                  class="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  Class
+                </a>
+              </Link>
             </div>
             <div class="flex-row ">
               <Link to="/community">
@@ -82,16 +94,15 @@ function ReusableHeader() {
               </Link>
             </div>
             <div class="flex-row ">
-              <RobotOutlined size={30} className="mr-5" />
-              <a href="#" class="text-sm font-semibold leading-6 text-gray-900">
-                Virtual Assistant
-              </a>
-            </div>
-            <div class="flex-row ">
-              <SearchOutlined size={30} className="mr-5" />
-              <a href="#" class="text-sm font-semibold leading-6 text-gray-900">
-                Find Book
-              </a>
+              <Link to="/assistant">
+                <RobotOutlined size={30} className="mr-5" />
+                <a
+                  href="#"
+                  class="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  Virtual Assistant
+                </a>
+              </Link>
             </div>
           </div>
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">

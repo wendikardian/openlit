@@ -17,7 +17,7 @@ export default function Community() {
           className="profile-img"
         />
         <div className="upload-input-data">
-          <TextArea rows={4} placeholder="maxLength is 6" maxLength={6} />
+          <TextArea rows={4} placeholder="Insert your caption" maxLength={6} />
         </div>
         <Button
           type="primary"
@@ -27,28 +27,29 @@ export default function Community() {
         />
       </div>
       <div className="feed-cont">
-        <div className="feed-card">
-          <div className="profile-feeds">
-            <img
-              src="https://img.freepik.com/free-icon/user_318-159711.jpg"
-              className="profile-img"
-            />
-            <p style={{ marginLeft: 30 }}>Wendi kardian</p>
-          </div>
-          <div className="feed-content">
-            <Image
-              width={400}
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            />
-            <p className="caption-feed">
-              {" "}
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab
-              soluta, libero vero amet nostrum temporibus odio culpa consectetur
-              nemo saepe! Quidem eaque officiis animi iusto impedit dolorum
-              minima cupiditate et.
-            </p>
-          </div>
-        </div>
+        {posting.map((item) => {
+          return (
+            <div className="feed-card">
+              <div className="profile-feeds">
+                <img
+                  src="https://img.freepik.com/free-icon/user_318-159711.jpg"
+                  className="profile-img"
+                />
+                <p style={{ marginLeft: 30 }}>{item.user}</p>
+              </div>
+              <div className="feed-content">
+                <Image
+                  width={400}
+                  src={item.profile}
+                />
+                <p className="caption-feed">
+                  {" "}
+                 {item.caption}
+                </p>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
