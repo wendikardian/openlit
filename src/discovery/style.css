@@ -1,0 +1,23 @@
+.header-input-upload{
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    width: 50%;
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 50px;
+    display: flex;
+}
+
+.profile-img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.upload-input-data{
+    width: 80%;
+    margin: 20px;
+}

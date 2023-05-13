@@ -1,9 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/logo.png";
-import { BookOutlined, CommentOutlined, FileTextOutlined, RobotOutlined, SearchOutlined , UserOutlined } from "@ant-design/icons";
+import {
+  BookOutlined,
+  CommentOutlined,
+  FileTextOutlined,
+  RobotOutlined,
+  SearchOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { DownOutlined } from "@ant-design/icons";
+import { Dropdown, Space } from "antd";
 
 function ReusableHeader() {
+  const items = [
+    {
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.antgroup.com"
+        >
+          See Profile
+        </a>
+      ),
+      key: "0",
+    },
+    {
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.aliyun.com"
+        >
+          Log out
+        </a>
+      ),
+      key: "1",
+    },
+  ];
   return (
     <div>
       <header class="bg-white  bs-header shadow-lg">
@@ -19,10 +54,15 @@ function ReusableHeader() {
           </div>
           <div class="hidden lg:flex lg:gap-x-12 mr-40 ">
             <div class="flex-row ">
-              <BookOutlined size={30} className="mr-5" />
-              <a href="#" class="text-sm font-semibold leading-6 text-gray-900">
-                Book
-              </a>
+              <Link to="/book/dashboard">
+                <BookOutlined size={30} className="mr-5" />
+                <a
+                  href="#"
+                  class="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  Book
+                </a>
+              </Link>
             </div>
             <div class="flex-row ">
               <FileTextOutlined size={30} className="mr-5" />
@@ -31,10 +71,15 @@ function ReusableHeader() {
               </a>
             </div>
             <div class="flex-row ">
-              <CommentOutlined  size={30} className="mr-5"/>
-              <a href="#" class="text-sm font-semibold leading-6 text-gray-900">
-                Community
-              </a>
+              <Link to="/community">
+                <CommentOutlined size={30} className="mr-5" />
+                <a
+                  href="#"
+                  class="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  Community
+                </a>
+              </Link>
             </div>
             <div class="flex-row ">
               <RobotOutlined size={30} className="mr-5" />
@@ -50,13 +95,18 @@ function ReusableHeader() {
             </div>
           </div>
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Link to="/register">
-              <div class=" ml-20 p-2 rounded-2xl  bg-yellow-400">
-                <UserOutlined />
-                <a href="" class="font-semibold">
-                </a>
-              </div>
-            </Link>
+            <Dropdown
+              menu={{
+                items,
+              }}
+            >
+              <Link to="/register">
+                <div class=" ml-20 p-2 rounded-2xl  bg-yellow-400">
+                  <UserOutlined />
+                  <a href="" class="font-semibold"></a>
+                </div>
+              </Link>
+            </Dropdown>
           </div>
         </nav>
       </header>

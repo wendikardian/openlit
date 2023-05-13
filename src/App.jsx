@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./login/Login";
 import Register from "./login/Register";
 import DashboardBook from "./Book/DashboardBook";
+import Community from "./discovery/Community";
 
 function LandingPage() {
   return (
@@ -24,7 +25,8 @@ function App() {
         <Route exact path="/" Component={LandingPage} />
         <Route  path="/login" Component={Login} />
         <Route  path="/register" Component={Register} />
-        <Route  path="/book/dashboard" Component={DashboardBook} />
+        <Route  path="/book/dashboard" exact Component={DashboardBook} />
+        <Route  path="/community" Component={Community} />
       </Routes>
     </Router>
   );
