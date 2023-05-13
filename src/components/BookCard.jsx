@@ -2,14 +2,15 @@ import React from 'react'
 import './BookCard.css'
 
 
-export default function BookCard() {
+export default function BookCard(props) {
+  const {img, book, genre, author} = props
   return (
     <div className="card-book">
-      <img src="https://m.media-amazon.com/images/I/71Ia7ZfsETL.jpg" className="book-img" />
-      <div>
-        <h3>Career/Success</h3>
-        <p>Art/Design</p>
-        <p>By : Cal Newport</p>
+      <img src={img} className="book-img" />
+      <div className="desc-box">
+        <h3>{book}</h3>
+        <p>{genre}</p>
+        <p>By : {author}</p>
       </div>
     </div>
   )

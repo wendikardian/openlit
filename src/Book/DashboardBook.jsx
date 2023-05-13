@@ -1,9 +1,10 @@
 import React from "react";
 import ReusableHeader from "../components/ReusableHeader";
 import BookCard from "../components/BookCard";
-import { bookGenre } from "../../data/Data";
+import { bookGenre, Book } from "../../data/Data";
+import {ArticleCard} from "../components/ArticleCard"
 import { useEffect } from "react";
-import './Book.css'
+import "./Book.css";
 
 export default function DashboardBook() {
   useEffect(() => {
@@ -27,10 +28,20 @@ export default function DashboardBook() {
       <div>
         <h1 className="categories mt-14 text-4xl">Books </h1>
         <div className="container-genre">
-          <BookCard />
-          <BookCard />
-          <BookCard />
+          {Book.map((item) => {
+            return <BookCard
+            img = {item.image}
+            book = {item.title}
+            genre = {item.genre}
+            author = {item.author}
+
+            />;
+          })}
         </div>
+      </div>
+      <div>
+        <h1 className="categories mt-14 text-4xl">Articles </h1>
+        <ArticleCard />
       </div>
     </div>
   );

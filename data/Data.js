@@ -2,12 +2,14 @@ export const Book = [
     {
         "id": 1,
         "title": "The Hunger Games",
+        "genre" : "Fiction",
         "author": "Suzanne Collins",
-        "image": "https://images-na.ssl-images-amazon.com/images/I/51Mk0vTbONL._SX331_BO1,204,203,200_.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/en/3/39/The_Hunger_Games_cover.jpg",
         "price": 10.99,
     }, {
         "id": 2,
         "title": "Harry Potter and the Philosopher's Stone",
+        "genre" : "Fantasy",
         "author": "J.K. Rowling",
         "image": "https://images-na.ssl-images-amazon.com/images/I/51UoqRAxwEL._SX331_BO1,204,203,200_.jpg",
         "price": 12.99,
@@ -15,51 +17,59 @@ export const Book = [
     }, {
         "id": 3,
         "title": "Twilight",
+        "genre" : "Romance",
         "author": "Stephenie Meyer",
         "image": "https://images-na.ssl-images-amazon.com/images/I/51WIKlio9qL._SX331_BO1,204,203,200_.jpg",
         "price": 9.99,
     }, {
         "id": 4,
         "title": "To Kill a Mockingbird",
+        "genre" : "Mystery",
         "author": "Harper Lee",
-        "image": "https://images-na.ssl-images-amazon.com/images/I/51f4F-B9WjL._SX331_BO1,204,203,200_.jpg",
+        "image": "https://media.glamour.com/photos/56e1f3c4bebf143c52613c04/master/w_1600%2Cc_limit/entertainment-2016-02-12-main.jpg ",
         "price": 8.99,
     }, {
         "id": 5,
         "title": "The Great Gatsby",
+        "genre" : "Fiction",
         "author": "F. Scott Fitzgerald",
-        "image": "https://images-na.ssl-images-amazon.com/images/I/51o5nU2YmZL._SX331_BO1,204,203,200_.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg",
         "price": 7.99,
     }, {
         "id": 6,
         "title": "The Fault in Our Stars",
+        "genre" : "Non-Fiction",
         "author": "John Green",
-        "image": "https://images-na.ssl-images-amazon.com/images/I/51j5p7Ev9pL._SX331_BO1,204,203,200_.jpg",
+        "image": "https://m.media-amazon.com/images/I/817tHNcyAgL.jpg",
         "price": 6.99,
     }, {
         "id": 7,
         "title": "The Hobbit",
+        "genre" : "Fantasy",
         "author": "J.R.R. Tolkien",
-        "image": "https://images-na.ssl-images-amazon.com/images/I/51o5joxQ3NL._SX331_BO1,204,203,200_.jpg",
+        "image": "https://m.media-amazon.com/images/I/710+HcoP38L._AC_UF1000,1000_QL80_.jpg",
         "price": 5.99,
     }, {
         "id": 8,
         "title": "The Catcher in the Rye",
+        "genre" : "Mystery",
         "author": "J.D. Salinger",
-        "image": "https://images-na.ssl-images-amazon.com/images/I/51o5joxQ3NL._SX331_BO1,204,203,200_.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/The_Catcher_in_the_Rye_%281951%2C_first_edition_cover%29.jpg",
         "price": 4.99,
 
     }, {
         "id": 9,
         "title": "Angels and Demons",
+        "genre" : "Fiction",
         "author": "Dan Brown",
-        "image": "https://images-na.ssl-images-amazon.com/images/I/51o5joxQ3NL._SX331_BO1,204,203,200_.jpg",
+        "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1639587647l/960.jpg",
         "price": 3.99,
     }, {
         "id": 10,
         "title" : "Amazon Web Services in Action",
+        "genre" : "Non-Fiction",
         "author" : "Andreas Wittig",
-        "image" : "https://images-na.ssl-images-amazon.com/images/I/51o5joxQ3NL._SX331_BO1,204,203,200_.jpg",
+        "image" : "https://m.media-amazon.com/images/I/71L-lHkQdnL._AC_UF1000,1000_QL80_.jpg",
         "price" : 2.99,
     }
 ]
@@ -81,5 +91,34 @@ export const bookGenre = [
     }, {
         "id": 5,
         "genre": "Mystery"
+    }
+]
+
+
+export const Articles = [
+    {
+        "id": 1,
+        "title": "How to be a good writer",
+        "author": "John Doe",
+        "image": "https://images.unsplash.com/photo-1517248135467-4dceea8dce2b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3JpdGVyJTIwc3RvcmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
+        "content": "Lorem ipsum dolor sit amet c"
+    }, {
+        "id": 2,
+        "title": "How to be a good singer",
+        "author": "John Doe",
+        "image": "https://images.unsplash.com/photo-1517248135467-4dceea8dce2b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3JpdGVyJTIwc3RvcmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
+        "content": "Lorem ipsum dolor sit amet c"
+    }, {
+        "id": 3,
+        "title": "How to be a good dancer",
+        "author": "John Doe",
+        "image" : "https://images.unsplash.com/photo-1517248135467-4dceea8dce2b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d3JpdGVyJTIwc3RvcmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
+        "content": "Lorem ipsum dolor sit amet c"
+    }, {
+        "id": 4,
+        "title": "How to be a good programmer",
+        "author": "John Doe",
+        "image" : "https://buzzup.id/wp-content/uploads/2021/08/profesi-programmer-sekarang-bergengsi.jpg",
+        "content": "Lorem ipsum dolor sit amet c"
     }
 ]
