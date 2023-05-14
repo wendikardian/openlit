@@ -111,7 +111,7 @@ function ReusableHeader() {
                 items,
               }}
             >
-              <Link to="/register">
+              <Link to="/profile">
                 <div class=" ml-20 p-2 rounded-2xl  bg-yellow-400">
                   <UserOutlined />
                   <a href="" class="font-semibold"></a>
