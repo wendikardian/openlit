@@ -1,0 +1,31 @@
+.class-title{
+    font-size: 40px;
+    margin-top: 120px;
+}
+
+.class-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    width: 80%;
+}
+
+.class-card{
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    padding-bottom: 20px;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    margin: 20px;
+}
+
+.class-card:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+
+.class-desc{
+    margin-top: 30px;
+}

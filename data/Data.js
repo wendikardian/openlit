@@ -144,3 +144,28 @@ export const posting = [
         "profile" : "https://buzzup.id/wp-content/uploads/2021/08/profesi-programmer-sekarang-bergengsi.jpg",
     },
 ]
+
+
+export const classData = [
+    {
+        "code" : "CS 101",
+        "name" : "Introduction to Computer Science",
+        "lecturer" : "John Doe",
+        "image" : "https://s30876.pcdn.co/wp-content/uploads/Career-Connections-1170x630.jpg.optimal.jpg",
+    }, {
+        "code" : "CS 102",
+        "name" : "Introduction to Machine LEarning",
+        "lecturer" : "John Doe",
+        "image" : "https://s30876.pcdn.co/wp-content/uploads/Career-Connections-1170x630.jpg.optimal.jpg",
+    }, {
+        "code" : "CS 103",
+        "name" : "Introduction to Data Science",
+        "lecturer" : "John Doe",
+        "image" : "https://s30876.pcdn.co/wp-content/uploads/Career-Connections-1170x630.jpg.optimal.jpg",
+    }, {
+        "code" : "CS 104",
+        "name" : "Introduction to Artificial Intelligence",
+        "lecturer" : "John Doe",
+        "image" : "https://s30876.pcdn.co/wp-content/uploads/Career-Connections-1170x630.jpg.optimal.jpg",
+    }
+]
