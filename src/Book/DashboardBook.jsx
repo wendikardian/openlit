@@ -4,12 +4,14 @@ import BookCard from "../components/BookCard";
 import { bookGenre, Book, Articles } from "../../data/Data";
 import ArticleCard from "../components/ArticleCard.jsx";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Book.css";
 
 export default function DashboardBook() {
   useEffect(() => {
     console.log(bookGenre);
   }, []);
+  const navigate = useNavigate();
   return (
     <div>
       <ReusableHeader />
@@ -30,12 +32,17 @@ export default function DashboardBook() {
         <div className="container-genre">
           {Book.map((item) => {
             return (
-              <BookCard
-                img={item.image}
-                book={item.title}
-                genre={item.genre}
-                author={item.author}
-              />
+
+                <BookCard
+                  img={item.image}
+                  book={item.title}
+                  genre={item.genre}
+                  author={item.author}
+                  onClick={() => {
+                    navigate(`/book/${item.id}`)
+                  }}
+                />
+
             );
           })}
         </div>
@@ -43,15 +50,15 @@ export default function DashboardBook() {
       <div>
         <h1 className="categories mt-14 text-4xl">Articles </h1>
         <div className="container-genre">
-          {
-            Articles.map(item => {
-              return(
-                <ArticleCard image={item.image} title={item.title} author={item.author} />
-              )
-            }
-            )
-          }
-
+          {Articles.map((item) => {
+            return (
+              <ArticleCard
+                image={item.image}
+                title={item.title}
+                author={item.author}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

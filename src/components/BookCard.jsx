@@ -5,7 +5,7 @@ import './BookCard.css'
 export default function BookCard(props) {
   const {img, book, genre, author} = props
   return (
-    <div className="card-book">
+    <div className="card-book" {...props}>
       <img src={img} className="book-img" />
       <div className="desc-box">
         <h3>{book}</h3>

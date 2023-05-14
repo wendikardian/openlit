@@ -9,6 +9,7 @@ import Community from "./discovery/Community";
 import Class from "./class/Class";
 import Assistant from "./virtual_assist/Assistant";
 import ProfilePage from "./profile/ProfilePage";
+import BookDetail from "./Book/BookDetail";
 
 function LandingPage() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route  path="/login" Component={Login} />
         <Route  path="/register" Component={Register} />
         <Route  path="/book/dashboard" exact Component={DashboardBook} />
+        <Route  path="/book/:id"  Component={BookDetail} />
         <Route  path="/community" Component={Community} />
         <Route  path="/class/list" exact Component={Class} />
         <Route  path="/assistant" Component={Assistant} />
