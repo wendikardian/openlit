@@ -5,9 +5,24 @@ import "./style.css";
 import { Input, Button } from "antd";
 import { posting } from "../../data/Data";
 import { Image } from "antd";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { apiUrl } from "../../data";
 
 export default function Community() {
   const { TextArea } = Input;
+  const [post, setPost] = useState([]);
+  useEffect(  () => {
+    axios
+      .get(apiUrl + "/feeds")
+      .then((res) => {
+        setPost(res.data);
+        console.log(post)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div>
       <ReusableHeader />
@@ -27,7 +42,7 @@ export default function Community() {
         />
       </div>
       <div className="feed-cont">
-        {posting.map((item) => {
+        {post.map((item) => {
           return (
             <div className="feed-card">
               <div className="profile-feeds">
@@ -38,14 +53,8 @@ export default function Community() {
                 <p style={{ marginLeft: 30 }}>{item.user}</p>
               </div>
               <div className="feed-content">
-                <Image
-                  width={400}
-                  src={item.profile}
-                />
-                <p className="caption-feed">
-                  {" "}
-                 {item.caption}
-                </p>
+                <Image width={400} src={item.profile} />
+                <p className="caption-feed"> {item.caption}</p>
               </div>
             </div>
           );

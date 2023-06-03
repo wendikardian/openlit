@@ -6,7 +6,7 @@ export const InputComponent = (props) => {
   return (
     <div class="input-div">
       <h2>{nameInput}</h2>
-      <input type="text" class="input-com" />
+      <input type="text" class="input-com" {...props} />
     </div>
   );
 };

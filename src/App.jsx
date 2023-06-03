@@ -10,8 +10,18 @@ import Class from "./class/Class";
 import Assistant from "./virtual_assist/Assistant";
 import ProfilePage from "./profile/ProfilePage";
 import BookDetail from "./Book/BookDetail";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function LandingPage() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const email = Cookies.get("email");
+    if (email) {
+      navigate("/profile");
+    }
+  }, []);
   return (
     <div>
       <Header />

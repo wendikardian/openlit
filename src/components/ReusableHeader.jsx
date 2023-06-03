@@ -11,8 +11,20 @@ import {
 } from "@ant-design/icons";
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import Cookies from "js-cookie";
 
 function ReusableHeader() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    // Check if the cookie email exist or not if not redirec
+    const email = Cookies.get("email");
+    if (email === undefined) {
+      navigate("/login");
+    }
+  }, []);
+
   const items = [
     {
       label: (
@@ -33,9 +45,12 @@ function ReusableHeader() {
     {
       label: (
         <a
-          target="_blank"
           rel="noopener noreferrer"
-          href="https://www.aliyun.com"
+          href="#"
+          onClick={() => {
+            Cookies.remove("email");
+            navigate("/login");
+          }}
         >
           Log out
         </a>
