@@ -8,10 +8,13 @@ import { Image } from "antd";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { apiUrl } from "../../data";
+import { DataCtx } from "../DataCtx/Datactx";
+import { useContext } from "react";
 
 export default function Community() {
   const { TextArea } = Input;
   const [post, setPost] = useState([]);
+  const {profile} = useContext(DataCtx)
   useEffect(  () => {
     axios
       .get(apiUrl + "/feeds")

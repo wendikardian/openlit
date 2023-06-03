@@ -13,6 +13,7 @@ import BookDetail from "./Book/BookDetail";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import DataProvider from './DataCtx/Datactx'
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -30,22 +31,22 @@ function LandingPage() {
   );
 }
 
-
-
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route exact path="/" Component={LandingPage} />
-        <Route  path="/login" Component={Login} />
-        <Route  path="/register" Component={Register} />
-        <Route  path="/book/dashboard" exact Component={DashboardBook} />
-        <Route  path="/book/:id"  Component={BookDetail} />
-        <Route  path="/community" Component={Community} />
-        <Route  path="/class/list" exact Component={Class} />
-        <Route  path="/assistant" Component={Assistant} />
-        <Route  path="/profile" Component={ProfilePage} />
-      </Routes>
+      <DataProvider>
+        <Routes>
+          <Route exact path="/" Component={LandingPage} />
+          <Route path="/login" Component={Login} />
+          <Route path="/register" Component={Register} />
+          <Route path="/book/dashboard" exact Component={DashboardBook} />
+          <Route path="/book/:id" Component={BookDetail} />
+          <Route path="/community" Component={Community} />
+          <Route path="/class/list" exact Component={Class} />
+          <Route path="/assistant" Component={Assistant} />
+          <Route path="/profile" Component={ProfilePage} />
+        </Routes>
+      </DataProvider>
     </Router>
   );
 }

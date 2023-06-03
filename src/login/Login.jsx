@@ -38,6 +38,7 @@ export default function Login() {
         console.log(res);
         navigate("/profile");
         Cookies.set("email", res.data.email);
+        Cookies.set("idUser", res.data.idUser);
       })
       .catch((err) => {
         console.log(err);

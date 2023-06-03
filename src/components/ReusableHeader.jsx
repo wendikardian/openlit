@@ -49,7 +49,7 @@ function ReusableHeader() {
           href="#"
           onClick={() => {
             Cookies.remove("email");
-            navigate("/login");
+            // navigate("/login");
           }}
         >
           Log out
