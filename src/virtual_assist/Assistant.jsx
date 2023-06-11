@@ -7,15 +7,17 @@ import axios from "axios";
 import { apiUrl } from "../../data";
 import { DataCtx } from "../DataCtx/Datactx";
 import { useContext } from "react";
+import { Spin } from "antd";
 
 const { Search } = Input;
 
 export default function Assistant() {
   const [prompt, setPrompt] = useState("Hello, how can I help you?");
+  const [loading, setLoading] = useState(false);
   const [chatLog, setChatLog] = useState([]);
   const { profile, setProfile } = useContext(DataCtx);
-  useEffect( () => {
-     axios.get(apiUrl + "/chatlog/" + profile.id).then((res) => {
+  useEffect(() => {
+    axios.get(apiUrl + "/chatlog/" + profile.id).then((res) => {
       console.log(res.data);
       setChatLog(res.data);
     });
@@ -23,6 +25,7 @@ export default function Assistant() {
 
   const handleSubmit = async () => {
     console.log("submit");
+    setLoading(true);
     let newChatLog = [...chatLog, { user: "me", message: prompt }];
     setChatLog(newChatLog);
     setPrompt("");
@@ -39,6 +42,7 @@ export default function Assistant() {
       console.log(res.data);
       setChatLog(res.data);
     });
+    setLoading(false);
   };
   return (
     <div>
@@ -46,62 +50,24 @@ export default function Assistant() {
       <div className="virtual-content">
         <h1 className="class-title">Assistant</h1>
         <div className="chat-container">
+          <Spin spinning={loading} tip="Loading..." />
           {chatLog.map((chat) => {
             return (
               <div className={chat.is_from_user ? "chat-box" : "chat-box bot"}>
+                <div className="flex-profile">
+                  {chat.is_from_user ? (
+                    <p className="profile-assistant">{profile.name}</p>
+                  ) : (
+                    <p className="profile-assistant">BOT</p>
+                  )}
+                  <p className="profile-date-chat">{chat.date}</p>
+                </div>
 
-                {chat.is_from_user ? <p>{profile.name}</p> : <p>BOT</p>}
                 <p></p>
                 <p>{chat.message}</p>
               </div>
             );
           })}
-
-          <div className="chat-box">
-            <p>Me : </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo illo
-              iste eaque voluptas perspiciatis beatae ea deserunt rerum ipsa
-              cumque, officiis itaque hic architecto animi facilis maxime
-              sapiente veniam quibusdam.
-            </p>
-          </div>
-          <div className="chat-box bot">
-            <p>Bot : </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo illo
-              iste eaque voluptas perspiciatis beatae ea deserunt rerum ipsa
-              cumque, officiis itaque hic architecto animi facilis maxime
-              sapiente veniam quibusdam.
-            </p>
-          </div>
-          <div className="chat-box">
-            <p>Me : </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo illo
-              iste eaque voluptas perspiciatis beatae ea deserunt rerum ipsa
-              cumque, officiis itaque hic architecto animi facilis maxime
-              sapiente veniam quibusdam.
-            </p>
-          </div>
-          <div className="chat-box bot">
-            <p>Me : </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo illo
-              iste eaque voluptas perspiciatis beatae ea deserunt rerum ipsa
-              cumque, officiis itaque hic architecto animi facilis maxime
-              sapiente veniam quibusdam.
-            </p>
-          </div>
-          <div className="chat-box">
-            <p>Me : </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo illo
-              iste eaque voluptas perspiciatis beatae ea deserunt rerum ipsa
-              cumque, officiis itaque hic architecto animi facilis maxime
-              sapiente veniam quibusdam.
-            </p>
-          </div>
         </div>
         <div className="text-form">
           <Search

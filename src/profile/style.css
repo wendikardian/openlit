@@ -36,3 +36,84 @@
 .profile-fullname{
     font-size: 20px;
 }
+
+.edit-photo{
+    margin-top: 30px;
+    background-color: rgb(255, 200, 0);
+    padding: 10px;
+    border-radius: 30px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.edit-photo:hover{
+    border: 2px solid rgb(255, 200, 0);
+    background-color: white !important;
+}
+
+.edit-photo-container{
+    margin-top: 130px;
+    background-color: white;
+    /* add some good box shadow */
+
+}
+
+.edit-photo-text{
+    font-size: 40px;
+}
+
+.image-edit-preview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.edit-box{
+    display: flex;
+    border: 2px solid rgb(255, 196, 0);
+    padding: 10px;
+    margin-top: 50px;
+    border-radius: 30px;
+}
+
+.edit-box-container{
+    margin-top: 130px;
+    /* create good box shadown */
+    background-color: white;
+    padding: 50px;
+    width: 70%;;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 40px;
+    /* make it to center */
+    margin-left: 15%;
+
+}
+
+
+.edit-box-container h1{
+    font-size: 34px;
+}
+
+.form-data input{
+    margin-top: 20px;
+    width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 196, 0);
+}
+
+.edit-box-container button{
+    margin-top: 20px;
+    background-color: rgb(255, 196, 0);
+    padding: 20px;
+    border-radius: 30px;
+    border: 2px solid white;
+    cursor: pointer;
+
+}
+
+.edit-box-container button:hover{
+    border: 2px solid rgb(255, 196, 0);
+    background-color: white !important;
+}

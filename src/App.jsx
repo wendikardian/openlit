@@ -13,7 +13,12 @@ import BookDetail from "./Book/BookDetail";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import DataProvider from './DataCtx/Datactx'
+import DataProvider from './DataCtx/Datactx';
+import EditPhoto from "./profile/EditPhoto";
+import EditProfile from "./profile/EditProfile";
+import ChangePassword from "./profile/ChangePassword";
+import AddClass from "./class/AddClass";
+import DetailClass from "./class/DetailClass";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -45,6 +50,11 @@ function App() {
           <Route path="/class/list" exact Component={Class} />
           <Route path="/assistant" Component={Assistant} />
           <Route path="/profile" Component={ProfilePage} />
+          <Route path="/edit-photo" Component={EditPhoto} />
+          <Route path="/edit-profile" Component={EditProfile} />
+          <Route path="/change-password" Component={ChangePassword} />
+          <Route path="/add-class" Component={AddClass} />
+          <Route path="/class/detail/:id" Component={DetailClass} />
         </Routes>
       </DataProvider>
     </Router>

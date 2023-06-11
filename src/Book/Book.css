@@ -55,3 +55,15 @@
 .bold{
   font-weight: bold;
 }
+
+.to-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-book{
+  font-weight: bold !important;
+  font-size: 40px !important;
+}

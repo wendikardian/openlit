@@ -42,3 +42,13 @@
     text-align: right;
     background-color: antiquewhite;
 }
+
+.flex-profile{
+    display: flex;
+}
+
+.profile-date-chat{
+    margin-left: 20px;
+    font-size: smaller;
+}
+

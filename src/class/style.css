@@ -29,3 +29,24 @@
 .class-desc{
     margin-top: 30px;
 }
+
+
+.add-class{
+    background-color: rgb(255, 187, 0);
+    padding: 18px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    color: white;
+    font-weight: bold;
+}
+
+
+.add-class:hover{
+    cursor: pointer;
+    background-color: rgb(255, 187, 0);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}

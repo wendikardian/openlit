@@ -49,6 +49,7 @@ function ReusableHeader() {
           href="#"
           onClick={() => {
             Cookies.remove("email");
+            window.location.reload();
             // navigate("/login");
           }}
         >

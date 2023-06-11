@@ -10,10 +10,12 @@ import axios from "axios";
 import { apiUrl } from "../../data";
 import { DataCtx } from "../DataCtx/Datactx";
 import { useContext } from "react";
+import { Spin } from 'antd';
 
 export default function Community() {
   const { TextArea } = Input;
   const [post, setPost] = useState([]);
+  
   const {profile} = useContext(DataCtx)
   useEffect(  () => {
     axios
