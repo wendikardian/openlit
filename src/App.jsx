@@ -19,6 +19,7 @@ import EditProfile from "./profile/EditProfile";
 import ChangePassword from "./profile/ChangePassword";
 import AddClass from "./class/AddClass";
 import DetailClass from "./class/DetailClass";
+import CreatePosting from "./discovery/CreatePosting";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -55,6 +56,7 @@ function App() {
           <Route path="/change-password" Component={ChangePassword} />
           <Route path="/add-class" Component={AddClass} />
           <Route path="/class/detail/:id" Component={DetailClass} />
+          <Route path="/create-posting" Component={CreatePosting} />
         </Routes>
       </DataProvider>
     </Router>

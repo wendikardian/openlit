@@ -5,20 +5,44 @@ import { Button, Image } from "antd";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { apiUrl } from "../../data";
+import { useContext } from "react";
+import { DataCtx } from "../DataCtx/Datactx";
+import { useNavigate } from "react-router-dom";
 import ReactHtmlParser from "react-html-parser";
 
 export default function DetailClass() {
   const { id } = useParams();
+  const { profile } = useContext(DataCtx);
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   console.log(id);
   const [classData, setClassData] = useState([]);
+  const [first, setFirst] = useState(true);
 
   useEffect(() => {
     const fetchClassData = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/class/${id}`);
-        console.log(response.data);
+        const response = await axios.get(`${apiUrl}/class/${id}/${profile.id}`);
+        // console.log(response.data);
         setClassData(response.data);
+        fetchImageClass();
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const fetchImageClass = async () => {
+      try {
+        const response = await axios.get(
+          `${apiUrl}/class_image/${classData.class_code}`,
+          {
+            responseType: "blob",
+          }
+        );
+        const blob = new Blob([response.data], { type: "image/png" });
+        const url = URL.createObjectURL(blob);
+        setClassData({ ...classData, image: url });
+        fetchUserData();
       } catch (error) {
         console.error(error);
       }
@@ -26,18 +50,41 @@ export default function DetailClass() {
 
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/user/${classData.lecture_id}`);
-        console.log(response.data);
+        const response = await axios.get(
+          `${apiUrl}/user/${classData.lecture_id}`
+        );
         setUsers(response.data);
+        // console.log(response.data);
+        setFirst(false);
+
+        // fetchIsEnrolled();
       } catch (error) {
         console.error(error);
       }
     };
+    // const fetchIsEnrolled = async () => {
+    //   try {
 
-    fetchClassData();
-    fetchUserData();
+    //     const response = await axios.get(
+    //       `${apiUrl}/is_enrolled/${profile.id}/${classData.id}`
+    //     );
+    //     console.log(response.data);
+    //     setClassData({ ...classData, isEnrolled: response.data });
+    //     // fetchUserData();
+    //     // console.log("hello")
+    //     console.log(classData.isEnrolled);
+    //     setFirst(false);
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // };
+
+    if (first) {
+      fetchClassData();
+    }
+
     console.log(classData);
-  }, []);
+  }, [classData]);
 
   function convertToHTML(string) {
     return ReactHtmlParser(string);
@@ -50,7 +97,9 @@ export default function DetailClass() {
         <div className="book-detail-info .wrap">
           <Image
             src={
-              "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg"
+              classData.image
+                ? classData.image
+                : "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
             }
             width={500}
           />
@@ -74,9 +123,32 @@ export default function DetailClass() {
             </h1>
             <div>{convertToHTML(classData.description)}</div>
 
-            <Button type="primary" className="btn-book-detail">
-              Read
-            </Button>
+            {classData.is_enrolled ? (
+              <Button
+                // type="primary"
+                style={{
+                  backgroundColor: "yellow",
+                  borderColor: "yellow",
+                  color: "black",
+                }}
+                className="btn-book-detail"
+                onClick={() => {
+                  navigate(`/class/${classData.class_code}`);
+                }}
+              >
+                Go to Class
+              </Button>
+            ) : (
+              <Button
+                type="primary"
+                className="btn-book-detail"
+                onClick={() => {
+                  navigate(`/enroll/${classData.class_code}`);
+                }}
+              >
+                Enroll This class
+              </Button>
+            )}
           </div>
         </div>
       </div>

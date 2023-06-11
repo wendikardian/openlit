@@ -10,19 +10,26 @@ import axios from "axios";
 import { apiUrl } from "../../data";
 import { DataCtx } from "../DataCtx/Datactx";
 import { useContext } from "react";
-import { Spin } from 'antd';
+import { Spin } from "antd";
+import { ButtonComponent } from "../components/ButtonComponent";
+import { useNavigate } from "react-router-dom";
+import ReactHtmlParser from "react-html-parser";
 
 export default function Community() {
   const { TextArea } = Input;
   const [post, setPost] = useState([]);
-  
-  const {profile} = useContext(DataCtx)
-  useEffect(  () => {
+  const navigate = useNavigate();
+  const { profile } = useContext(DataCtx);
+  function convertToHTML(string) {
+    return ReactHtmlParser(string);
+  }
+
+  useEffect(() => {
     axios
       .get(apiUrl + "/feeds")
       .then((res) => {
         setPost(res.data);
-        console.log(post)
+        console.log(post);
       })
       .catch((err) => {
         console.log(err);
@@ -31,7 +38,7 @@ export default function Community() {
   return (
     <div>
       <ReusableHeader />
-      <div className="header-input-upload">
+      {/* <div className="header-input-upload">
         <img
           src="https://img.freepik.com/free-icon/user_318-159711.jpg"
           className="profile-img"
@@ -45,7 +52,12 @@ export default function Community() {
           shape="circle"
           icon={<SendOutlined />}
         />
-      </div>
+      </div> */}
+      <ButtonComponent
+        text="Create Posting"
+        style={{ marginTop: 150 }}
+        onClick={() => navigate("/create-posting")}
+      />
       <div className="feed-cont">
         {post.map((item) => {
           return (
@@ -59,7 +71,7 @@ export default function Community() {
               </div>
               <div className="feed-content">
                 <Image width={400} src={item.profile} />
-                <p className="caption-feed"> {item.caption}</p>
+                {convertToHTML(item.caption)}
               </div>
             </div>
           );
