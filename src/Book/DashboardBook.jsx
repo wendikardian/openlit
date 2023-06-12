@@ -13,7 +13,6 @@ import { DataCtx } from "../DataCtx/Datactx";
 import axios from "axios";
 import { apiUrl } from "../../data";
 
-
 export default function DashboardBook() {
   const [bookData, setBookData] = useState([]);
   const { profile } = useContext(DataCtx);
@@ -24,7 +23,7 @@ export default function DashboardBook() {
         setBookData(res.data);
       });
     }
-  }, [bookData])
+  }, [bookData]);
   const navigate = useNavigate();
   return (
     <div>
@@ -40,9 +39,8 @@ export default function DashboardBook() {
                 genre={item.genre}
                 author={item.author}
                 onClick={() => {
-                  navigate(`/book/${item.id}`,
-                  {
-                    state : {title : item.title}
+                  navigate(`/book/${item.id}`, {
+                    state: { title: item.title },
                   });
                 }}
               />
@@ -50,11 +48,13 @@ export default function DashboardBook() {
           })}
         </div>
       </div>
-      <Link to="/add-book">
-        <div className="add-class">
-          <PlusOutlined />
-        </div>
-      </Link>
+      {profile.id == 2 ? (
+        <Link to="/add-book">
+          <div className="add-class">
+            <PlusOutlined />
+          </div>
+        </Link>
+      ) : null}
       <div>
         <h1 className="categories mt-14 text-4xl">Articles </h1>
         <div className="container-genre">

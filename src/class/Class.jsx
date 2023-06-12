@@ -92,11 +92,13 @@ export default function Class() {
           })}
         </div>
       </div>
-      <Link to="/add-class">
-        <div className="add-class">
-          <PlusOutlined />
-        </div>
-      </Link>
+      {profile.role == 2 ? (
+        <Link to="/add-class">
+          <div className="add-class">
+            <PlusOutlined />
+          </div>
+        </Link>
+      ) : null}
     </div>
   );
 }

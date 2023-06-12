@@ -87,3 +87,8 @@ select{
 /* .form-data{
   justify-content: flex-start !important;
 } */
+
+.center-box{
+  display: flex;
+  flex-direction: column;
+}

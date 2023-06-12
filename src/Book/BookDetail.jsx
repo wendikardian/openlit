@@ -12,9 +12,11 @@ import ReactHtmlParser from "react-html-parser";
 import { Spin } from "antd";
 import { DataCtx } from "../DataCtx/Datactx";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function BookDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const location = useLocation();
   const dataTitle = location.state.title;
   console.log(dataTitle);
@@ -95,7 +97,11 @@ export default function BookDetail() {
               <span className="bold"> synopsis : </span>{" "}
             </h1>
             <p>{convertToHTML(book.description)}</p>
-            <Button type="primary" className="btn-book-detail">
+            <Button type="primary" className="btn-book-detail"
+              onClick={() => {
+                navigate(`/read-book/${book.id}`);
+              }}
+            >
               Read
             </Button>
             {profile.role == 2 ? (
@@ -103,6 +109,7 @@ export default function BookDetail() {
                 type="primary"
                 style={{ marginLeft: 40 }}
                 className="btn-book-detail"
+                onClick={() => navigate(`/manage-book/${book.id}`)}
               >
                 Manage book
               </Button>

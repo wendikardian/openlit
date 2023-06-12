@@ -24,6 +24,10 @@ import Comment from "./discovery/Comment";
 import EditPosting from "./discovery/EditPosting";
 import EnrollClass from "./class/EnrollClass";
 import AddBook from "./Book/AddBook";
+import ManageBook from "./Book/ManageBook";
+import ReadBook from "./Book/ReadBook";
+import Assesment from "./Book/Assesment";
+import SummaryBook from "./Book/SummaryBook";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -65,6 +69,10 @@ function App() {
           <Route path="/edit-posting/:id" Component={EditPosting} />
           <Route path="/enroll/:id" Component={EnrollClass} />
           <Route path="/add-book" Component={AddBook} />
+          <Route path="/manage-book/:id" Component={ManageBook} />
+          <Route path="/read-book/:id" Component={ReadBook} />
+          <Route path="/assesment/:id" Component={Assesment} />
+          <Route path="/summary_book/:id" Component={SummaryBook} />
         </Routes>
       </DataProvider>
     </Router>
