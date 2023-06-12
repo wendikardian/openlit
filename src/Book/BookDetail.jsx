@@ -7,22 +7,39 @@ import { Image } from "antd";
 import { Button } from "antd";
 import { apiUrl } from "../../data";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
+import ReactHtmlParser from "react-html-parser";
 import { Spin } from "antd";
+import { DataCtx } from "../DataCtx/Datactx";
+import { useContext } from "react";
 
 export default function BookDetail() {
   const { id } = useParams();
+  const location = useLocation();
+  const dataTitle = location.state.title;
+  console.log(dataTitle);
+
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(false);
   const [summary, setSummary] = useState("");
   const [first, setFirst] = useState(true);
+  const { profile } = useContext(DataCtx);
   useEffect(() => {
-    const bookdata = Book.find((item) => item.id == id);
-    setBook(bookdata);
+    const fetchBook = async () => {
+      try {
+        const response = await axios.get(`${apiUrl}/book/${id}`);
+        console.log(response.data);
+        setBook(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchBook();
   }, []);
 
   const getSummary = async () => {
     try {
-      axios.post(apiUrl + "/resume", { book: book.title }).then((res) => {
+      axios.post(apiUrl + "/resume", { book: dataTitle }).then((res) => {
         console.log(res.data.message);
         setSummary(res.data.message);
         setLoading(false);
@@ -42,13 +59,17 @@ export default function BookDetail() {
 
   useEffect(() => {
     console.log(book);
-    if(first && book.title != undefined){
+    if (first && book.title != undefined) {
       setLoading(true);
       getSummary();
       setFirst(false);
     }
     // setLoading(false);
   }, [book]);
+
+  function convertToHTML(string) {
+    return ReactHtmlParser(string);
+  }
 
   return (
     <div>
@@ -73,15 +94,19 @@ export default function BookDetail() {
               {" "}
               <span className="bold"> synopsis : </span>{" "}
             </h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis, tenetur. Ut perspiciatis molestias, numquam unde
-              soluta dolorem alias harum, exercitationem impedit quam a.
-              Laborum, nesciunt ratione cumque molestiae ad repellendus.
-            </p>
+            <p>{convertToHTML(book.description)}</p>
             <Button type="primary" className="btn-book-detail">
               Read
             </Button>
+            {profile.role == 2 ? (
+              <Button
+                type="primary"
+                style={{ marginLeft: 40 }}
+                className="btn-book-detail"
+              >
+                Manage book
+              </Button>
+            ) : null}
           </div>
         </div>
         <div className="book-detail-info">

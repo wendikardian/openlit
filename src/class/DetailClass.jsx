@@ -143,7 +143,7 @@ export default function DetailClass() {
                 type="primary"
                 className="btn-book-detail"
                 onClick={() => {
-                  navigate(`/enroll/${classData.class_code}`);
+                  navigate(`/enroll/${classData.id}`);
                 }}
               >
                 Enroll This class

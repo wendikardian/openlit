@@ -9,8 +9,10 @@ import { Image } from "antd";
 import { apiUrl } from "../../data";
 import { message } from "antd";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-export default function CreatePosting() {
+export default function EditPosting() {
+  const { id } = useParams();
   const [content, setContent] = useState("");
   const navigate = useNavigate();
   const { profile } = useContext(DataCtx);
@@ -26,37 +28,31 @@ export default function CreatePosting() {
     data: "",
   });
 
-  const handleFileChange = (e) => {
-    const img = {
-      preview: URL.createObjectURL(e.target.files[0]),
-      data: e.target.files[0],
-    };
-    setImage(img);
-  };
+  useEffect(() => {
+    axios.get(apiUrl + "/feeds/" + id).then((res) => {
+      console.log(res.data);
+      setContent(res.data.caption);
+    });
+  }, []);
 
-  const submitData = async () => {
+  const editData = () => {
     const data = {
-      fk_user: profile.id,
-      caption: content,
-      // get current data in unix date
-      date: moment().unix(),
+      content: content,
     };
-    let formData = new FormData();
-    formData.append("file", image.data);
-    formData.append("data", JSON.stringify(data));
-    await axios.post(apiUrl + "/add_posting/", formData).then((res) => {
+    axios.put(apiUrl + "/feeds/" + id, data).then((res) => {
       console.log(res);
       if (res.status === 200) {
-        message.success("Image uploaded successfully");
+        message.success("Success to update the data !");
         navigate("/community");
         setTimeout(() => {
-            window.location.reload();
+          window.location.reload();
         }, 1000);
       } else {
         message.error("Error uploading image");
       }
     });
   };
+
   return (
     <div>
       <ReusableHeader />
@@ -65,18 +61,6 @@ export default function CreatePosting() {
         <h1>Create a New Article / Posting </h1>
         <div className="mt-120"></div>
         <div className="class-input-container">
-          {image.preview && (
-            <Image
-              src={image.preview}
-              width="100"
-              height="100"
-              style={{ marginBottom: 40, width: 300 }}
-            />
-          )}
-          <div className="form-data">
-            <label htmlFor="username">Posting Image : </label>
-            <input type="file" name="file" onChange={handleFileChange} />
-          </div>
           <div style={{ marginTop: 50 }}>
             <label htmlFor="username">Description : </label>
             <ReactQuill
@@ -86,7 +70,7 @@ export default function CreatePosting() {
             />
           </div>
         </div>
-        <button onClick={submitData}>Publish</button>
+        <button onClick={editData}>Publish</button>
       </div>
     </div>
   );

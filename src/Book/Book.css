@@ -67,3 +67,23 @@
   font-weight: bold !important;
   font-size: 40px !important;
 }
+
+select{
+
+  width:60%;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 30px;
+  border: 2px solid rgb(255, 174, 0);
+}
+
+.form-data label{
+  text-align: left !important;
+}
+
+/* .form-data{
+  justify-content: flex-start !important;
+} */

@@ -13,13 +13,17 @@ import BookDetail from "./Book/BookDetail";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import DataProvider from './DataCtx/Datactx';
+import DataProvider from "./DataCtx/Datactx";
 import EditPhoto from "./profile/EditPhoto";
 import EditProfile from "./profile/EditProfile";
 import ChangePassword from "./profile/ChangePassword";
 import AddClass from "./class/AddClass";
 import DetailClass from "./class/DetailClass";
 import CreatePosting from "./discovery/CreatePosting";
+import Comment from "./discovery/Comment";
+import EditPosting from "./discovery/EditPosting";
+import EnrollClass from "./class/EnrollClass";
+import AddBook from "./Book/AddBook";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -57,6 +61,10 @@ function App() {
           <Route path="/add-class" Component={AddClass} />
           <Route path="/class/detail/:id" Component={DetailClass} />
           <Route path="/create-posting" Component={CreatePosting} />
+          <Route path="/comment/:id" Component={Comment} />
+          <Route path="/edit-posting/:id" Component={EditPosting} />
+          <Route path="/enroll/:id" Component={EnrollClass} />
+          <Route path="/add-book" Component={AddBook} />
         </Routes>
       </DataProvider>
     </Router>

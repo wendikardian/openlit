@@ -76,16 +76,16 @@ export default function Class() {
             return (
               // link to /class/detail/id
 
-              <div className="class-card"
-              onClick={() => {
-                navigate(`/class/detail/${item.id}`);
-              }}
+              <div
+                className="class-card"
+                onClick={() => {
+                  navigate(`/class/detail/${item.id}`);
+                }}
               >
                 <img src={item.image} alt="" />
                 <div className="class-desc">
                   <h1>{item.class_name}</h1>
                   <p>Code class : {item.class_code}</p>
-                  <p>lecturer : {item.lecturer}</p>
                 </div>
               </div>
             );
