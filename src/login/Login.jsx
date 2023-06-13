@@ -76,9 +76,6 @@ export default function Login() {
             type="password"
           />
         </div>
-        <div className="forgot-div  flex justify-end">
-          <p class="text-left">Forgot your password ? </p>
-        </div>
         <Link to="/book/dashboard">
           <div class="button-login" onClick={login}>
             <p>Login</p>

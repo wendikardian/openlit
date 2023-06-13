@@ -55,7 +55,7 @@ export default function DashboardBook() {
           </div>
         </Link>
       ) : null}
-      <div>
+      {/* <div>
         <h1 className="categories mt-14 text-4xl">Articles </h1>
         <div className="container-genre">
           {Articles.map((item) => {
@@ -68,7 +68,7 @@ export default function DashboardBook() {
             );
           })}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

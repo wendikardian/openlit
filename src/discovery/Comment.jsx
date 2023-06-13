@@ -180,14 +180,14 @@ export default function Comment() {
           </div>
         )}
       </div>
-      <div className="header-input-upload">
+      <div className="header-input-upload w-100persen">
         <img
           src="https://img.freepik.com/free-icon/user_318-159711.jpg"
           className="profile-img"
         />
-        <div className="upload-input-data">
+        <div className="upload-input-data ">
           <TextArea
-            rows={4}
+            rows={12}
             placeholder="Insert your caption"
             // maxLength={12}
             value={commentText}

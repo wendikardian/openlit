@@ -67,3 +67,26 @@
     width: 90% !important;
     margin-left: 2% !important;
 }
+
+.column-flex{
+    display: flex;
+    flex-direction: column;
+}
+
+/* create good styling for table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    /* add border */
+    border-bottom: 1px solid #ddd;
+    
+}
+
+

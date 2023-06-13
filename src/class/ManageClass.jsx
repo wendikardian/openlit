@@ -17,15 +17,16 @@ export default function ManageClass() {
 
   const { profile } = useContext(DataCtx);
   const location = useLocation();
-  console.log(location.state);
+
   //   const [classData, setClassData] = useState('')
   const classData = location.state.classData;
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [bookData, setBookData] = useState([]);
-  console.log(id);
+
   const [selectedBook, setSelectedBook] = useState("-");
   const [classBook, setClassBook] = useState([]);
+  const [allAnswer, setAllAnswer] = useState([]);
 
   const [first, setFirst] = useState(true);
 
@@ -34,7 +35,6 @@ export default function ManageClass() {
     const fetchDataBook = async () => {
       try {
         axios.get(`${apiUrl}/all_book/`).then((res) => {
-          console.log(res.data);
           setBookData(res.data);
           fetchClassBook();
         });
@@ -45,8 +45,29 @@ export default function ManageClass() {
     const fetchClassBook = async () => {
       try {
         axios.get(`${apiUrl}/class_book/${id}`).then((res) => {
-          console.log(res.data);
           setClassBook(res.data);
+          fetchClassMember();
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    const fetchClassMember = async () => {
+      try {
+        axios.get(`${apiUrl}/class_member/${id}`).then((res) => {
+          // console.log(res.data);
+          setUsers(res.data);
+          fetchAllAnswer();
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const fetchAllAnswer = async () => {
+      try {
+        axios.get(`${apiUrl}/all_answer/`).then((res) => {
+          setAllAnswer(res.data);
         });
       } catch (error) {
         console.error(error);
@@ -65,12 +86,11 @@ export default function ManageClass() {
     };
 
     axios.post(`${apiUrl}/class_book/`, data).then((res) => {
-      console.log(res.data);
       message.success("Book Added");
       setTimeout(() => {
         window.location.reload();
-      }, 1000)
-    //   navigate("/manage_class/"+id);
+      }, 1000);
+      //   navigate("/manage_class/"+id);
     });
   };
 
@@ -125,7 +145,59 @@ export default function ManageClass() {
                 Add Book
               </Button>
             </div>
+            <div className="form-data" style={{ marginTop: 20 }}>
+              <Button
+                className="ml-10"
+                onClick={() => {
+                  navigate("/edit_class_photo/" + id);
+                }}
+              >
+                Edit Photo
+              </Button>
+              <Button
+                className="ml-10"
+                onClick={() => {
+                  navigate("/edit_class/" + id, {
+                    state: { classData: classData },
+                  });
+                }}
+              >
+                Edit Data
+              </Button>
+            </div>
           </div>
+        </div>
+        <div className="book-detail-info column-flex">
+          <h1 className="book-detail-title">Student Info</h1>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Student Email</th>
+                <th>Activity Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => {
+                const filtered = allAnswer.filter(
+                  (data) => data.user_id == user.fk_user
+                );
+                console.log(filtered);
+                let score = 10 * filtered.length;
+                // filtered.map((data) => {
+                //   score += 10
+                // });
+                return (
+                  <tr>
+                    <td>{user.username}</td>
+                    <td>{user.email}</td>
+
+                    <td>{score}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

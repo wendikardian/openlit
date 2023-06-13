@@ -104,9 +104,6 @@ export default function Register() {
             onChange={(e) => setRepeatPassword(e.target.value)}
           />
         </div>
-        <div className="forgot-div  flex justify-end">
-          <p class="text-left">Forgot your password ? </p>
-        </div>
         <div class="button-login" onClick={submitData}>
           <p>Register</p>
         </div>

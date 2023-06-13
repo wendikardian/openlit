@@ -6,6 +6,8 @@ import { Spin } from "antd";
 import axios from "axios";
 import { apiUrl } from "../../data";
 import { DataCtx } from "../DataCtx/Datactx";
+import ReactHtmlParser from "react-html-parser";
+
 
 
 export default function SummaryBook() {
@@ -23,6 +25,9 @@ export default function SummaryBook() {
             setIsLoading(false);
         });
     }, [])
+    function convertToHTML(string) {
+      return ReactHtmlParser(string);
+    }
 
 
   return (
@@ -35,7 +40,8 @@ export default function SummaryBook() {
             isLoading ?
             <Spin size="large" />
             :
-            <p>{summary}</p>
+            <p>{convertToHTML(summary)
+              }</p>
         }
       </div>
     </div>

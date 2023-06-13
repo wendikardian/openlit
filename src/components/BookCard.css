@@ -1,41 +1,88 @@
-.card-book{
-    background-color: rgb(247, 232, 181);
-    padding-top: 20px;
-    border-radius: 20px;
-    margin: 15px;
-    padding-bottom: 0px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: 1s ease-out 0s 1 slideInFromLeft;
+.card-book {
+  background-color: rgb(247, 232, 181);
+  padding-top: 20px;
+  border-radius: 20px;
+  margin: 15px;
+  padding-bottom: 0px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
-.card-book:hover{
-    cursor: pointer;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.card-book:hover {
+  cursor: pointer;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 @keyframes slideInFromLeft {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
+  0% {
+    transform: translateX(-100%);
   }
-
-.book-img{
-    width: 150px;
-    border-radius: 12px;
+  100% {
+    transform: translateX(0);
+  }
 }
 
-.desc-box{
-    background-color:rgb(255, 255, 255);
-    margin-top: 10px;
-    border-radius: 12px;
-    padding: 10px;
-    width: 80%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.book-img {
+  width: 150px;
+  border-radius: 12px;
+}
 
+.desc-box {
+  background-color: rgb(255, 255, 255);
+  margin-top: 10px;
+  border-radius: 12px;
+  padding: 10px;
+  width: 80%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.burger-button {
+  display: none;
+}
+
+form button {
+  border: 2px solid rgb(255, 187, 0);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+/* for device less size than tablet */
+@media only screen and (max-width: 768px) {
+  .burger-button {
+    display: block;
+  }
+
+  .profile-box {
+    flex-direction: column;
+    width: 100% !important;
+  }
+
+  .box-profile {
+    margin-left: 0px !important;
+    margin-top: 20px;
+  }
+
+  input{
+    width: 100% !important;
+  }
+
+  .bot{
+    margin-left: 20px !important;
+  }
+
+  .yellow-bg{
+    width: 30px !important;
+  }
+
+  .jumb-dash{
+    flex-direction: column !important;
+  }
+
+  .jumb-dash img{
+    margin-top:50px;
+    width: 80%;
+  }
 }

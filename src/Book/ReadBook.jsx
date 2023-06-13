@@ -12,6 +12,8 @@ import { useContext } from "react";
 import { message } from "antd";
 import { Collapse } from "antd";
 import { Link } from "react-router-dom";
+import { Modal } from "antd";
+
 const { Panel } = Collapse;
 
 export default function ReadBook() {
@@ -54,6 +56,39 @@ export default function ReadBook() {
   function convertToHTML(string) {
     return ReactHtmlParser(string);
   }
+  const [visible, setVisible] = useState(false);
+  const [selectedId, setSelectedId] = useState(0);
+
+  const showModal = (id) => {
+    setVisible(true);
+    setSelectedId(id);
+  };
+
+  const handleOk = () => {
+    // Handle the OK button click
+    setVisible(false);
+    deleteSubBook(selectedId);
+  };
+
+  const deleteSubBook = (id) => {
+    axios
+      .delete(`${apiUrl}/sub_book/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        message.success("Data deleted");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  const handleCancel = () => {
+    // Handle the Cancel button click
+    setVisible(false);
+  };
 
   return (
     <div>
@@ -61,6 +96,14 @@ export default function ReadBook() {
       <div className="book-detail-info">
         <Image src={book.image} width={300} />
         <div className="book-detail-desc">
+          <Modal
+            title="Example Modal"
+            visible={visible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <p>Are You sure you wanna delete it </p>
+          </Modal>
           <h1 className="book-detail-title">Book Detail</h1>
           <h1>
             <span className="bold">Title </span> : {book.title}
@@ -80,7 +123,7 @@ export default function ReadBook() {
           <p>{convertToHTML(book.description)}</p>
         </div>
       </div>
-      <div className="book-detail-info center-box">
+      <div className="book-detail-info center-box j-left">
         <Collapse width={3400}>
           {subBook.map((item, index) => {
             return (
@@ -110,16 +153,26 @@ export default function ReadBook() {
                     </Button>
                   </>
                 ) : (
-                  <Button
-                    style={{ margin: 30 }}
-                    onClick={() => {
-                      navigate(`/answer/${item.id}`, {
-                        state: { question: item.question },
-                      });
-                    }}
-                  >
-                    See Answer
-                  </Button>
+                  <>
+                    <Button
+                      style={{ margin: 30 }}
+                      onClick={() => {
+                        navigate(`/answer/${item.id}`, {
+                          state: { question: item.question },
+                        });
+                      }}
+                    >
+                      See Answer
+                    </Button>
+                    <Button
+                      style={{ margin: 30 }}
+                      onClick={() => {
+                        showModal(item.id);
+                      }}
+                    >
+                      Delete Materials
+                    </Button>
+                  </>
                 )}
               </Panel>
             );

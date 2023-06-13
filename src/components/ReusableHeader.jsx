@@ -8,14 +8,27 @@ import {
   RobotOutlined,
   SearchOutlined,
   UserOutlined,
+  MenuOutlined,
 } from "@ant-design/icons";
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
+import { Modal, Menu } from "antd";
+import { useState } from "react";
 
 function ReusableHeader() {
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+
+  const showMenu = () => {
+    setIsMenuVisible(true);
+  };
+
+  const hideMenu = () => {
+    setIsMenuVisible(false);
+  };
+
   const navigate = useNavigate();
   useEffect(() => {
     // Check if the cookie email exist or not if not redirec
@@ -29,15 +42,9 @@ function ReusableHeader() {
     {
       label: (
         <Link to="/profile">
-
-
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-
-        >
-          See Profile
-        </a>
+          <a target="_blank" rel="noopener noreferrer">
+            See Profile
+          </a>
         </Link>
       ),
       key: "0",
@@ -45,8 +52,6 @@ function ReusableHeader() {
     {
       label: (
         <a
-          rel="noopener noreferrer"
-          href="#"
           onClick={() => {
             Cookies.remove("email");
             window.location.reload();
@@ -75,6 +80,84 @@ function ReusableHeader() {
               <h1 class="ml-4 text-lg font-weight">OPENLIT</h1>
             </a>
           </div>
+          {/* create burger button that only shown on mobile */}
+          <div className="burger-button">
+            <MenuOutlined style={{ fontSize: "24px" }} onClick={showMenu} />
+          </div>
+          <Modal
+            visible={isMenuVisible}
+            title="Application Menu"
+            onCancel={hideMenu}
+            footer={null}
+          >
+            <Menu>
+              {/* Add your menu items here */}
+              <Menu.Item key="1">
+                <Link to="/book/dashboard">
+                  <BookOutlined size={30} className="mr-5" />
+                  <a
+                    href="#"
+                    class="text-sm font-semibold leading-6 text-gray-900"
+                  >
+                    Book
+                  </a>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Link to="/class/list">
+                  <FileTextOutlined size={30} className="mr-5" />
+                  <a
+                    href="#"
+                    class="text-sm font-semibold leading-6 text-gray-900"
+                  >
+                    Class
+                  </a>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="3">
+                <Link to="/community">
+                  <CommentOutlined size={30} className="mr-5" />
+                  <a
+                    href="#"
+                    class="text-sm font-semibold leading-6 text-gray-900"
+                  >
+                    Community
+                  </a>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="3">
+                {" "}
+                <Link to="/assistant">
+                  <RobotOutlined size={30} className="mr-5" />
+                  <a
+                    href="#"
+                    class="text-sm font-semibold leading-6 text-gray-900"
+                  >
+                    Virtual Assistant
+                  </a>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="3">
+                <Link to="/profile">
+                  <a target="_blank" rel="noopener noreferrer">
+                    See Profile
+                  </a>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="3">
+                {" "}
+                <a
+                  onClick={() => {
+                    Cookies.remove("email");
+                    window.location.reload();
+                    // navigate("/login");
+                  }}
+                >
+                  Log out
+                </a>
+              </Menu.Item>
+            </Menu>
+          </Modal>
           <div class="hidden lg:flex lg:gap-x-12 mr-40 ">
             <div class="flex-row ">
               <Link to="/book/dashboard">

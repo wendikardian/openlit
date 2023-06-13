@@ -53,7 +53,7 @@ export default function Assistant() {
           <Spin spinning={loading} tip="Loading..." />
           {chatLog.map((chat) => {
             return (
-              <div className={chat.is_from_user ? "chat-box" : "chat-box bot"}>
+              <div className={chat.is_from_user ? "chat-box" : "chat-box bot ml-40"}>
                 <div className="flex-profile">
                   {chat.is_from_user ? (
                     <p className="profile-assistant">{profile.name}</p>

@@ -107,7 +107,7 @@ export default function DetailClass() {
             </h1>
             <div>{convertToHTML(classData.description)}</div>
 
-            {classData.is_enrolled && profile.role == 1 ? (
+            {(classData.is_enrolled && profile.role == 1) || profile.role == 2 ? (
               <Button
                 // type="primary"
                 style={{
@@ -117,7 +117,11 @@ export default function DetailClass() {
                 }}
                 className="btn-book-detail"
                 onClick={() => {
-                  navigate(`/class/${classData.class_code}`);
+                  navigate(`/class/${classData.id}`, {
+                    state: {
+                      classData: classData,
+                    },
+                  });
                 }}
               >
                 Go to Class

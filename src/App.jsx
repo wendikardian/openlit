@@ -30,6 +30,10 @@ import Assesment from "./Book/Assesment";
 import SummaryBook from "./Book/SummaryBook";
 import Answer from "./Book/Answer";
 import ManageClass from "./class/ManageClass";
+import SeeClass from "./class/SeeClass";
+import EditClass from "./class/EditClass";
+import EditPhotoClass from "./class/EditPhotoClass";
+
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -77,6 +81,9 @@ function App() {
           <Route path="/summary_book/:id" Component={SummaryBook} />
           <Route path="/answer/:id" Component={Answer} />
           <Route path="/manage_class/:id" Component={ManageClass} />
+          <Route path="/class/:id" Component={SeeClass} />
+          <Route path="/edit_class/:id" Component={EditClass} />
+          <Route path="/edit_class_photo/:id" Component={EditPhotoClass} />
         </Routes>
       </DataProvider>
     </Router>
