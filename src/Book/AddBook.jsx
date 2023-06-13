@@ -15,7 +15,7 @@ export default function AddBook() {
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [genre, setGenre] = useState("");
+  const [genre, setGenre] = useState("Computer Science");
   const [imageLink, setImageLink] = useState("");
   const [classPassword, setClassPassword] = useState("");
 

@@ -50,3 +50,20 @@
     background-color: rgb(255, 187, 0);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
+.edit-box-container{
+    width: 90% !important;
+    margin-left: 5% !important;
+}
+
+.feed-card{
+    width: 90% !important;
+}
+.feed-cont{
+    width: 90% !important;
+}
+
+.chat-container{
+    width: 90% !important;
+    margin-left: 2% !important;
+}

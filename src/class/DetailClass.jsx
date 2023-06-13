@@ -62,22 +62,6 @@ export default function DetailClass() {
         console.error(error);
       }
     };
-    // const fetchIsEnrolled = async () => {
-    //   try {
-
-    //     const response = await axios.get(
-    //       `${apiUrl}/is_enrolled/${profile.id}/${classData.id}`
-    //     );
-    //     console.log(response.data);
-    //     setClassData({ ...classData, isEnrolled: response.data });
-    //     // fetchUserData();
-    //     // console.log("hello")
-    //     console.log(classData.isEnrolled);
-    //     setFirst(false);
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // };
 
     if (first) {
       fetchClassData();
@@ -123,7 +107,7 @@ export default function DetailClass() {
             </h1>
             <div>{convertToHTML(classData.description)}</div>
 
-            {classData.is_enrolled ? (
+            {classData.is_enrolled && profile.role == 1 ? (
               <Button
                 // type="primary"
                 style={{
@@ -138,7 +122,7 @@ export default function DetailClass() {
               >
                 Go to Class
               </Button>
-            ) : (
+            ) : profile.role == 1 ? (
               <Button
                 type="primary"
                 className="btn-book-detail"
@@ -148,7 +132,22 @@ export default function DetailClass() {
               >
                 Enroll This class
               </Button>
-            )}
+            ) : null}
+            {profile.role == 2 ? (
+              <Button
+                type="primary"
+                className="btn-book-detail"
+                onClick={() => {
+                  navigate(`/manage_class/${classData.id}`, {
+                    state: {
+                      classData: classData,
+                    },
+                  });
+                }}
+              >
+                Manage Class
+              </Button>
+            ) : null}
           </div>
         </div>
       </div>

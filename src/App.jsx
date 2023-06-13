@@ -28,6 +28,8 @@ import ManageBook from "./Book/ManageBook";
 import ReadBook from "./Book/ReadBook";
 import Assesment from "./Book/Assesment";
 import SummaryBook from "./Book/SummaryBook";
+import Answer from "./Book/Answer";
+import ManageClass from "./class/ManageClass";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -73,6 +75,8 @@ function App() {
           <Route path="/read-book/:id" Component={ReadBook} />
           <Route path="/assesment/:id" Component={Assesment} />
           <Route path="/summary_book/:id" Component={SummaryBook} />
+          <Route path="/answer/:id" Component={Answer} />
+          <Route path="/manage_class/:id" Component={ManageClass} />
         </Routes>
       </DataProvider>
     </Router>

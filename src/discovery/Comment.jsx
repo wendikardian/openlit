@@ -49,7 +49,11 @@ export default function Comment() {
         const response = await axios.get(`${apiUrl}/feeds/${id}`);
         setItem(response.data);
         console.log(response.data);
-        fetchImageFeeds();
+        // setFirst(false);
+
+        if (response.data.image != "") {
+          fetchImageFeeds();
+        }
       } catch (error) {
         console.error(error);
       }
@@ -152,11 +156,26 @@ export default function Comment() {
                     src={item.image}
                     style={{ marginBottom: 30 }}
                     width={500}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src =
+                        "";
+                    }}
                   />
                 </div>
               )}
               {/* <Image width={400} src={item.profile} /> */}
               {convertToHTML(item.caption)}
+              <Button
+                style={{ margin: 30, backgroundColor: "yellow" }}
+                onClick={() => {
+                  navigate(`/summary_book/${item.id}`, {
+                    state: { detail: item.caption },
+                  });
+                }}
+              >
+                Summary
+              </Button>
             </div>
           </div>
         )}
@@ -170,7 +189,7 @@ export default function Comment() {
           <TextArea
             rows={4}
             placeholder="Insert your caption"
-            maxLength={12}
+            // maxLength={12}
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
           />

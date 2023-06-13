@@ -159,7 +159,14 @@ export default function Community() {
                     </p>
                   </div>
                   <div className="feed-content">
-                    <img src={item.imageData} style={{ marginBottom: 30 }} />
+                    <Image
+                      src={item.imageData}
+                      style={{ marginBottom: 30 }}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "";
+                      }}
+                    />
                     {/* <Image width={400} src={item.profile} /> */}
                     {convertToHTML(item.caption)}
                   </div>

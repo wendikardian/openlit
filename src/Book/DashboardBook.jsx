@@ -48,7 +48,7 @@ export default function DashboardBook() {
           })}
         </div>
       </div>
-      {profile.id == 2 ? (
+      {profile.role == 2 ? (
         <Link to="/add-book">
           <div className="add-class">
             <PlusOutlined />

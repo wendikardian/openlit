@@ -92,3 +92,8 @@ select{
   display: flex;
   flex-direction: column;
 }
+
+.space-evenly{
+  justify-content: space-between;
+  padding: 10px;
+}
