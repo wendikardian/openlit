@@ -50,7 +50,7 @@ export default function EnrollClass() {
     <div>
       <ReusableHeader />
       <div className="edit-box-container">
-        <h1>Create a New Class</h1>
+        <h1>Enroll Class</h1>
         <div className="class-input-container">
           <div className="form-data">
             <label htmlFor="username">Password Enrollment : </label>
